@@ -41,6 +41,7 @@ function displayTemperature(response) {
   let descriptElement = document.querySelector("#description");
   let humidElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#windspeed");
+  let iconElement = document.querySelector("#icon");
 
   windElement.innerHTML = response.data.wind.speed;
   humidElement.innerHTML = response.data.main.humidity;
@@ -48,9 +49,14 @@ function displayTemperature(response) {
   console.log(response.data.name);
   cityElement.innerHTML = response.data.name;
   descriptElement.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let apiKey = "b1a8336ff1e05b64da5625e4158fbea3";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New%20York&appid=${apiKey}&units=metric`;
+let city = "lisbon";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 console.log(apiUrl);
 axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
