@@ -55,8 +55,17 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "b1a8336ff1e05b64da5625e4158fbea3";
-let city = "lisbon";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
-axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
+function search(city) {
+  let apiKey = "b1a8336ff1e05b64da5625e4158fbea3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
