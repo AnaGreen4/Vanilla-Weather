@@ -1,38 +1,3 @@
-let now = new Date();
-
-let year = now.getFullYear();
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let date = now.getDate();
-let time = now.getHours();
-let minute = now.getMinutes();
-
-let todaysDate = document.querySelector("#date");
-todaysDate.innerHTML = `${day}, ${month} ${date}th, ${year}, ${time}:${minute}`;
-
 function displayTemperature(response) {
   console.log(response.data);
   let temp = Math.round(response.data.main.temp);
@@ -94,3 +59,37 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
+let now = new Date();
+
+let year = now.getFullYear();
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let month = months[now.getMonth()];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+let date = now.getDate();
+let time = now.getHours();
+let minute = now.getMinutes();
+
+let todaysDate = document.querySelector("#date");
+todaysDate.innerHTML = `${day}, ${month} ${date}th, ${year}, ${time}:${minute}`;
