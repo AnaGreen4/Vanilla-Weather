@@ -29,6 +29,7 @@ ul {
 .weather-app-wrap {
   max-width: 600px;
   margin: 30px auto;
+  background-color: rgb(247, 251, 253);
 }
 .overview {
   margin-bottom: 10px;
